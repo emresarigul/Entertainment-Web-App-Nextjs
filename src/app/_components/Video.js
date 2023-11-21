@@ -4,7 +4,7 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import { ImYoutube2 } from "react-icons/im";
 import Link from "next/link";
 
-export default function Exp({ videoDatas }) {
+export default function Video({ videoDatas }) {
   function findOfficialTrailers(el) {
     const officialTrailers = el.results.filter((item) => {
       return item.type === "Trailer";
