@@ -5,6 +5,7 @@ import { ImYoutube2 } from "react-icons/im";
 import Link from "next/link";
 
 export default function Video({ videoDatas }) {
+  // finds the official video from the api data
   function findOfficialTrailers(el) {
     const officialTrailers = el.results.filter((item) => {
       return item.type === "Trailer";
@@ -14,6 +15,7 @@ export default function Video({ videoDatas }) {
 
   const officialTrailers = findOfficialTrailers(videoDatas);
 
+  // for making youtube video autoplay
   const onReady = (event) => {
     const player = event.target;
     player.playVideo();
@@ -126,70 +128,3 @@ export default function Video({ videoDatas }) {
     </div>
   );
 }
-
-/* <div className="relative w-3/4">
-      <div className="h-0 pt-[56.25%]">
-        <YouTube
-          opts={{
-            playerVars: {
-              mute: 1,
-              controls: 0,
-              disablekb: 1,
-            },
-          }}
-          onReady={onReady}
-          videoId={
-            officialTrailers[0]?.key ||
-            videoDatas.results[0]?.key ||
-            videoDatas.results[1]?.key ||
-            videoDatas.results[2]?.key ||
-            videoDatas.results[3]?.key ||
-            videoDatas.results[4]?.key
-          }
-          className="hidden xl:block overflow-hidden brightness-[0.70] absolute top-0 left-0"
-        />
-      </div>
-      <YouTube
-        opts={{
-          playerVars: {
-            width: "100%",
-            height: "450",
-            mute: 1,
-            controls: 0,
-            disablekb: 1,
-          },
-        }}
-        onReady={onReady}
-        videoId={
-          officialTrailers[0]?.key ||
-          videoDatas.results[0]?.key ||
-          videoDatas.results[1]?.key ||
-          videoDatas.results[2]?.key ||
-          videoDatas.results[3]?.key ||
-          videoDatas.results[4]?.key
-        }
-        className="hidden md:block xl:hidden overflow-hidden w-full h-full -mt-[350px] brightness-[0.70] scale-125"
-      />
-      <YouTube
-        opts={{
-          width: "100%",
-          height: "450",
-          playerVars: {
-            mute: 1,
-            controls: 1,
-            disablekb: 1,
-            modestbranding: 1,
-          },
-        }}
-        onReady={onReady}
-        videoId={
-          officialTrailers[0]?.key ||
-          videoDatas.results[0]?.key ||
-          videoDatas.results[1]?.key ||
-          videoDatas.results[2]?.key ||
-          videoDatas.results[3]?.key ||
-          videoDatas.results[4]?.key
-        }
-        className="block md:hidden overflow-hidden lg:w-full h-[28rem] -mt-[200px] brightness-[0.70]"
-      />
-    </div>*/

@@ -3,11 +3,13 @@ import React from "react";
 import Image from "next/image";
 
 export default async function page({ params, searchParams }) {
+  // it fetches show datas based on show type(movie or tv) and show id
   const response = await fetch(
     `https://api.themoviedb.org/3/${searchParams.type}/${params.id}?api_key=${process.env.API_KEY}&append_to_response=videos,credits`
   );
 
   const data = await response.json();
+  // it checks if show has video. if not displays show image instead of video
   const checkVideo = data.videos.results.length;
 
   return (

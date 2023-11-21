@@ -5,6 +5,7 @@ import PaginationButtons from "../_components/PaginationButtons";
 
 export default async function page({ searchParams }) {
   const moviePage = searchParams.page || 1;
+  // it fetches the top rated movies
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}&page=${moviePage}`
   );

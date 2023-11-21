@@ -4,7 +4,7 @@ import Upcomings from "./_components/Upcomings";
 
 export default async function Home({ searchParams }) {
   const searchTerm = searchParams.genre || "trendsNow";
-
+  //"It fetches data from the API based on the "searchTerm" variable.
   const response = await fetch(
     `https://api.themoviedb.org/3/${
       searchTerm === "trendsNow"
