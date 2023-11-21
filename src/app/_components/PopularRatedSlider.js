@@ -42,7 +42,7 @@ export default function PopularRatedSlider({ results }) {
           clickable: true,
         }}
         autoplay={{
-          delay: 4000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}

@@ -19,7 +19,7 @@ export default function MainSlider({ results }) {
           type: "progressbar",
         }}
         autoplay={{
-          delay: 4000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
