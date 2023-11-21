@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
 import { GoEye } from "react-icons/go";
+import { IoIosClose } from "react-icons/io";
 import Link from "next/link";
 
 export default function UpcomingShows({
@@ -70,6 +71,10 @@ export default function UpcomingShows({
                 Detail
                 <GoEye className="text-xl" />
               </Link>
+              <IoIosClose
+                onClick={() => setModal(false)}
+                className="text-white absolute right-0 top-5 text-3xl md:text-4xl cursor-pointer"
+              />
             </div>
 
             <Image
