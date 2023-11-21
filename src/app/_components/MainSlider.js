@@ -66,6 +66,7 @@ export default function MainSlider({ results }) {
                   sizes="100%"
                   alt="movie-image"
                   placeholder="blur"
+                  quality={50}
                   blurDataURL={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
                 />
               </div>
