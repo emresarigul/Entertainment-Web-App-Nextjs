@@ -68,12 +68,12 @@ export default function PopularRatedSlider({ results }) {
                   className="object-cover rounded-xl pb-16 !h-[20rem] md:!h-[25rem] lg:!h-[30rem]"
                   width={1000}
                   height={500}
-                  src={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/w780${result.backdrop_path}`}
                   sizes="100%"
                   priority={true}
                   quality={50}
                   placeholder="blur"
-                  blurDataURL={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+                  blurDataURL={`https://image.tmdb.org/t/p/w780${result.backdrop_path}`}
                   alt="movie-image"
                 />
                 <div className=" absolute z-50 bottom-0 w-full px-2 md:px-3">

@@ -61,13 +61,13 @@ export default function MainSlider({ results }) {
                 </div>
                 <Image
                   className="object-cover object-top brightness-[0.50]"
-                  src={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/w1280${result.backdrop_path}`}
                   fill={true}
                   sizes="100%"
                   alt="movie-image"
                   placeholder="blur"
                   quality={50}
-                  blurDataURL={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+                  blurDataURL={`https://image.tmdb.org/t/p/w1280${result.backdrop_path}`}
                 />
               </div>
             </SwiperSlide>

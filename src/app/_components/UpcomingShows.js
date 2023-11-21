@@ -79,7 +79,7 @@ export default function UpcomingShows({
 
             <Image
               className="object-cover object-top brightness-50"
-              src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`}
               fill={true}
               sizes="100%"
               priority={true}
@@ -94,7 +94,7 @@ export default function UpcomingShows({
       >
         <Image
           className="object-cover rounded-xl"
-          src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w780${backdrop_path}`}
           fill={true}
           sizes="100%"
           priority={true}

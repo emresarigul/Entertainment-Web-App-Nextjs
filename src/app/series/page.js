@@ -26,7 +26,7 @@ export default async function page({ searchParams }) {
             >
               <Image
                 className="object-cover rounded-xl"
-                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
                 fill={true}
                 sizes="100%"
                 priority={true}

@@ -17,7 +17,7 @@ export default async function page({ params, searchParams }) {
           <Image
             className="object-cover"
             fill={true}
-            src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}
             alt="src"
           />
         </div>
@@ -28,7 +28,7 @@ export default async function page({ params, searchParams }) {
       <div className="relative py-5 border-t-4 border-[#dc1623]">
         <Image
           className="bg-no-repeat bg-cover bg-center object-cover h-[550px] w-full absolute top-0 brightness-[0.15]"
-          src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}
           alt="img"
           fill={true}
           quality={10}
@@ -67,7 +67,7 @@ export default async function page({ params, searchParams }) {
                     width={500}
                     height={500}
                     priority={true}
-                    src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
+                    src={`https://image.tmdb.org/t/p/h632${cast.profile_path}`}
                     alt={cast.name}
                   />
                   <div className="text-white text-base md:text-lg font-semibold">
