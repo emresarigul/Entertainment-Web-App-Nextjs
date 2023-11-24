@@ -1,6 +1,6 @@
 import Hero from "./_components/Hero";
-import PopularRatedSlider from "./_components/PopularRatedSlider";
-import Upcomings from "./_components/Upcomings";
+import PopularRatedSlider from "./_components/sliders/PopularRatedSlider";
+import Upcomings from "./_components/upcomings/Upcomings";
 
 export default async function Home({ searchParams }) {
   const searchTerm = searchParams.genre || "trendsNow";

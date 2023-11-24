@@ -1,5 +1,5 @@
 import React from "react";
-import MainSlider from "./MainSlider";
+import MainSlider from "./sliders/MainSlider";
 
 export default async function Hero() {
   //"It fetches trendings on that day

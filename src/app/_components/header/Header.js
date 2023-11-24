@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { IoMdMenu } from "react-icons/io";
 import MobileNav from "./MobileNav";
-import Search from "./Search";
+import Search from "../search/Search";
 
 export default function Header() {
   const [navActive, setNavActive] = useState(false);

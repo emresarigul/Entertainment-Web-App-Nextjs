@@ -1,5 +1,5 @@
 import React from "react";
-import SearchButton from "../_components/SearchButton";
+import SearchButton from "../_components/buttons/SearchButton";
 export default function SearchLayout({ children }) {
   return (
     <section>
