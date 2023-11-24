@@ -65,6 +65,7 @@ export default function Search() {
                   showType.showType === "movie" ? "serie" : "movie"
                 }/${showName}`
               );
+              setShowName("");
             }}
             defaultValue={"movie"}
             className={`text-black w-28 md:w-full text-xs md:text-base text-center absolute top-7 right-0 md:static ${

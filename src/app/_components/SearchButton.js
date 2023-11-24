@@ -11,7 +11,7 @@ export default function SearchButton({ param }) {
   return (
     <Link
       href={`/search-result/${param.toLowerCase()}/${params.showName}`}
-      className={` text-white text-2xl py-5 font-semibold`}
+      className={` text-white md:text-2xl py-5 font-semibold`}
     >
       {param}
       <div
