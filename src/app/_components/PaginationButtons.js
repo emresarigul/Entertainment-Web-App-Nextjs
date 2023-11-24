@@ -7,7 +7,7 @@ import { FaChevronLeft } from "react-icons/fa";
 
 export default function PaginationButtons({ showType }) {
   const searchParams = useSearchParams();
-  const showPage = +searchParams.get("page");
+  const showPage = +searchParams.get("page") || 1;
 
   return (
     <div className="flex text-white justify-center bg-[#16151a] py-10">

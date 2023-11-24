@@ -2,14 +2,17 @@
 import React, { useState } from "react";
 import MenuItem from "./MenuItem";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { IoMdMenu } from "react-icons/io";
 import MobileNav from "./MobileNav";
+import Search from "./Search";
 
 export default function Header() {
   const [navActive, setNavActive] = useState(false);
   const searchParams = useSearchParams();
   const headerCheck = searchParams.get("page");
+  const pathname = usePathname();
+  const pathnameCheck = pathname.includes("search-result");
 
   const navActiveHandler = () => {
     setNavActive(!navActive);
@@ -17,15 +20,16 @@ export default function Header() {
 
   return (
     <header
-      className={`px-3 py-4 md:py-0 relative z-50 border-b ${
-        !headerCheck ? "bg-black/[.10]" : "bg-black/[.92]"
+      className={`md:h-20 px-3 py-3 md:py-0 relative z-50 border-b ${
+        !pathnameCheck && !headerCheck ? "bg-black/[.10]" : "bg-black/[.92]"
       } border-gray-500/[.30]`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+      <div className="flex justify-between items-center max-w-7xl mx-auto gap-5 md:gap-10 h-full">
         <Link href="/" className="text-red-500 font-extrabold text-xl">
           TWISTFLIX
         </Link>
-        <div className="hidden md:flex space-x-20 py-5">
+        <Search />
+        <div className="hidden md:flex space-x-20 py-5 h-16">
           <MenuItem
             setNavActive={setNavActive}
             title="Home"
