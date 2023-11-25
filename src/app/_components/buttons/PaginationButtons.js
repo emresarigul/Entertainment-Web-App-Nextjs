@@ -10,7 +10,7 @@ export default function PaginationButtons({ showType }) {
   const showPage = +searchParams.get("page") || 1;
 
   return (
-    <div className="flex text-white justify-center bg-[#16151a] py-10">
+    <div className="flex text-white justify-center bg-[#16151a] py-10 gap-10">
       {showPage > 1 && (
         <Link href={`/${showType}?page=${showPage - 1}`}>
           <FaChevronLeft className="text-3xl" />
