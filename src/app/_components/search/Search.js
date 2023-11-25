@@ -15,7 +15,10 @@ export default function Search() {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    if (!showName) return;
+    if (!showName.trim()) {
+      setShowName("");
+      return;
+    }
     router.push(
       `/search-result/${
         showType.showType === null ? "movie" : showType.showType
@@ -34,7 +37,7 @@ export default function Search() {
       <form className="relative" onSubmit={searchHandler}>
         <input
           onChange={(e) => {
-            setShowName(e.target.value.trim());
+            setShowName(e.target.value);
           }}
           className="w-full h-8 md:h-10 text-xs md:text-base bg-black/10 border border-white/50 rounded-lg outline-none focus:bg-white/10 text-white pl-2 pr-5 sm:pr-14 md:pr-20 lg:pr-52"
           type="text"
@@ -61,6 +64,7 @@ export default function Search() {
                 showType: e.target.value,
                 text: e.target.value,
               });
+              if (!showName) return;
               router.push(
                 `/search-result/${
                   showType.showType === "movie" ? "serie" : "movie"

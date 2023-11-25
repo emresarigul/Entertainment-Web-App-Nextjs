@@ -15,6 +15,23 @@ export default async function page({ params, searchParams }) {
     (serie) => serie.backdrop_path !== null
   );
 
+  if (serieImageCheck.length === 0) {
+    return (
+      <div className="text-white flex flex-col items-center justify-center bg-[#16151a] py-10">
+        <div className="text-2xl sm:text-4xl font-semibold mb-3">
+          No Results
+        </div>
+        <p className="text-base sm:text-lg">
+          Go back to
+          <Link className="font-bold underline hover:text-[#dc1623]" href="/">
+            main page
+          </Link>
+          or search again.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a]">

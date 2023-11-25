@@ -6,8 +6,7 @@ import Link from "next/link";
 export default function SearchButton({ param }) {
   const params = useParams();
   const pathname = usePathname();
-  console.log(pathname);
-  console.log(param);
+  console.log(params);
   return (
     <Link
       href={`/search-result/${param.toLowerCase()}/${params.showName}`}
@@ -17,7 +16,7 @@ export default function SearchButton({ param }) {
       <div
         className={` ${
           pathname.includes(param.toLowerCase())
-            ? "w-full h-1 bg-[#dc1623]  block"
+            ? "w-full h-1 bg-[#dc1623] block"
             : "hidden"
         }`}
       ></div>

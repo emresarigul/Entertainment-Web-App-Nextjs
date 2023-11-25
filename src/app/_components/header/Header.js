@@ -25,7 +25,7 @@ export default function Header() {
       } border-gray-500/[.30]`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto gap-5 md:gap-10 h-full">
-        <Link href="/" className="text-red-500 font-extrabold text-xl">
+        <Link href="/" className="text-[#dc1623] font-extrabold text-xl">
           TWISTFLIX
         </Link>
         <Search />
