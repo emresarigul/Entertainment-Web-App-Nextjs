@@ -5,7 +5,7 @@ import { IoIosClose } from "react-icons/io";
 export default function MobileNav({ navActive, setNavActive }) {
   return (
     <div
-      className={`absolute left-0 right-0 top-0 flex flex-col items-center justify-center space-y-5 md:hidden bg-black/[.80] h-44 -translate-y-52 ${
+      className={`absolute left-0 right-0 top-0 flex flex-col items-center justify-center space-y-3 md:space-y-5 md:hidden bg-black/[.80] h-36 md:h-44 -translate-y-52 duration-300 ${
         navActive && "active-mobile-nav"
       }`}
     >

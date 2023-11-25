@@ -15,8 +15,8 @@ export default function MenuItem({ title, path, activePath, setNavActive }) {
       {title}
       <div
         className={`${
-          activePath === pathname ? "md:block" : "hidden"
-        } w-2.5 h-2.5 rounded-full mt-1 bg-[#dc1623] left-0 right-0 mx-auto hidden`}
+          activePath === pathname ? "block" : "hidden"
+        } w-full md:w-2.5 h-1 md:h-2.5 rounded-full md:mt-1 bg-[#dc1623] left-0 right-0 mx-auto`}
       ></div>
     </Link>
   );
