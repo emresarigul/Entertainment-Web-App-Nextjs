@@ -17,15 +17,15 @@ export default async function page({ params, searchParams }) {
 
   if (serieImageCheck.length === 0) {
     return (
-      <div className="text-white flex flex-col items-center justify-center bg-[#16151a] py-10">
+      <div className="text-white flex flex-col items-center pt-40 h-full">
         <div className="text-2xl sm:text-4xl font-semibold mb-3">
           No Results
         </div>
         <p className="text-base sm:text-lg">
-          Go back to
+          Go back to{" "}
           <Link className="font-bold underline hover:text-[#dc1623]" href="/">
             main page
-          </Link>
+          </Link>{" "}
           or search again.
         </p>
       </div>
