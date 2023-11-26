@@ -13,7 +13,7 @@ export default async function page({ searchParams }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a]">
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a]">
         {data.results.map((movie, index) => {
           let titleLength = movie.title?.length || movie.original_name?.length;
           let movieName = movie.title || movie.original_name;
@@ -34,11 +34,11 @@ export default async function page({ searchParams }) {
                 alt="movie-image"
               />
               <div className=" absolute z-50 bottom-0 w-full px-3 py-4 bg-gradient-to-t from-black  to-[#16151a]/[.80] rounded-xl rounded-t-none">
-                <div className="text-white font-bold text-lg">
+                <h2 className="text-white font-bold text-lg">
                   {titleLength > 20
                     ? movieName.substring(0, 28) + "..."
                     : movieName}
-                </div>
+                </h2>
                 <div className="flex items-center justify-between">
                   <div className="text-[#4e4d52] text-sm font-semibold">
                     {releaseDate.substring(0, 4)}
@@ -49,7 +49,7 @@ export default async function page({ searchParams }) {
             </Link>
           );
         })}
-      </div>
+      </section>
       <PaginationButtons showType="movies" />
     </>
   );

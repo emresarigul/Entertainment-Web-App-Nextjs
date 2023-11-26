@@ -77,11 +77,11 @@ export default function PopularRatedSlider({ results }) {
                   alt="movie-image"
                 />
                 <div className=" absolute z-50 bottom-0 w-full px-2 md:px-3">
-                  <div className="text-white text-sm font-semibold md:font-bold md:text-lg">
+                  <h2 className="text-white text-sm font-semibold md:font-bold md:text-lg">
                     {titleLength > 20
                       ? movieName.substring(0, 19) + "..."
                       : movieName}
-                  </div>
+                  </h2>
                   <div className="flex items-center justify-between">
                     <div className="text-[#4e4d52] text-sm font-semibold">
                       {releaseDate.substring(0, 4)}

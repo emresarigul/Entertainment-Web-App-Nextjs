@@ -56,11 +56,11 @@ export default async function page({ params, searchParams }) {
                 alt="movie-image"
               />
               <div className=" absolute z-50 bottom-0 w-full px-3 py-4 bg-gradient-to-t from-black  to-[#16151a]/[.80] rounded-xl rounded-t-none">
-                <div className="text-white font-bold text-lg">
+                <h2 className="text-white font-bold text-lg">
                   {titleLength > 20
                     ? serieName.substring(0, 28) + "..."
                     : serieName}
-                </div>
+                </h2>
                 <div className="flex items-center justify-between">
                   <div className="text-[#4e4d52] text-sm font-semibold">
                     {releaseDate?.substring(0, 4)}

@@ -41,16 +41,16 @@ export default function MainSlider({ results }) {
                         : "text-3xl"
                     } md:text-4xl lg:text-5xl font-bold mb-5 lg:mb-10 flex items-center gap-3 lg:gap-5`}
                   >
-                    <div> {result.title || result.original_name} </div>
+                    <h2>{result.title || result.original_name}</h2>
                     <div className="text-[#f8b200] text-sm lg:text-2xl">
                       {voteAverage.toFixed(1)}
                     </div>
                   </div>
-                  <div className="text-sm md:text-base max-w-5xl mb-8 mr-8 truncate-2">
+                  <p className="text-sm md:text-base max-w-5xl mb-8 mr-8 truncate-2">
                     {descriptionLength > 400
                       ? result.overview.substring(0, 300) + "..."
                       : result.overview}
-                  </div>
+                  </p>
                   <Link
                     href={`/detail/${result.id}?type=${result.media_type}`}
                     className="inline-flex items-center gap-2 bg-[#dc1623] px-6 py-1.5 md:px-14 md:py-2.5 rounded-full font-medium shadow-2xl shadow-[#dc1623]/[.60]"

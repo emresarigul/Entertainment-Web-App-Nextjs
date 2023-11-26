@@ -13,7 +13,7 @@ export default async function page({ params, searchParams }) {
   const checkVideo = data.videos.results.length;
 
   return (
-    <div className="bg-black">
+    <section className="bg-black">
       {checkVideo === 0 || undefined ? (
         <div className="relative w-full h-96 brightness-[0.70]">
           <Image
@@ -37,7 +37,7 @@ export default async function page({ params, searchParams }) {
         />
 
         <div className="relative z-50 text-2xl md:text-3xl text-white font-bold px-5 mb-3 flex items-center flex-wrap gap-3">
-          <div>{data.title || data.original_name}</div>
+          <h2>{data.title || data.original_name}</h2>
           <div className="relative z-50 flex items-center text-[#f8b200] text-sm font-normal">
             {data.genres?.map((genre, index) => {
               return (
@@ -49,9 +49,9 @@ export default async function page({ params, searchParams }) {
           </div>
         </div>
 
-        <div className="relative z-50 text-sm md:text-base text-white px-5 max-w-7xl mb-6">
+        <p className="relative z-50 text-sm md:text-base text-white px-5 max-w-7xl mb-6">
           {data.overview}
-        </div>
+        </p>
         <div className="relative z-50 text-white text-3xl font-semibold px-5">
           Cast
         </div>
@@ -83,6 +83,6 @@ export default async function page({ params, searchParams }) {
             })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

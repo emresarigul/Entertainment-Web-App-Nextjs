@@ -58,12 +58,12 @@ export default function UpcomingShows({
                   })}
                 </div>
               </div>
-              <div className="text-white text-3xl sm:text-5xl font-bold mb-3 sm:mb-7">
+              <h2 className="text-white text-3xl sm:text-5xl font-bold mb-3 sm:mb-7">
                 {movieName}
-              </div>
-              <div className="text-white max-w-4xl text-sm sm:text-base mb-5">
+              </h2>
+              <p className="text-white max-w-4xl text-sm sm:text-base mb-5">
                 {overview}
-              </div>
+              </p>
               <Link
                 href={`/detail/${id}?type=movie`}
                 className="inline-flex items-center text-white gap-2 bg-[#dc1623] px-6 py-1.5 md:px-14 md:py-2.5 rounded-full font-medium shadow-2xl shadow-[#dc1623]/[.60]"
@@ -101,12 +101,12 @@ export default function UpcomingShows({
           alt="movie-image"
         />
         <div className=" absolute z-40 bottom-0 w-full px-3 py-4 bg-gradient-to-t from-black  to-[#16151a]/[.80] rounded-xl rounded-t-none">
-          <div className="text-white hidden sm:block font-bold text-sm sm:text-lg">
+          <h2 className="text-white hidden sm:block font-bold text-sm sm:text-lg">
             {titleLength > 20 ? movieName.substring(0, 28) + "..." : movieName}
-          </div>
-          <div className="text-white sm:hidden font-bold text-sm sm:text-lg">
+          </h2>
+          <h2 className="text-white sm:hidden font-bold text-sm sm:text-lg">
             {titleLength > 15 ? movieName.substring(0, 15) + "..." : movieName}
-          </div>
+          </h2>
           <div className="flex items-center justify-between">
             <div className="text-[#4e4d52] text-sm font-semibold">
               {releaseDate.substring(0, 4)}

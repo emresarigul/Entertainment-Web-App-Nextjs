@@ -26,7 +26,7 @@ export default function Header() {
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto gap-5 md:gap-10 h-full">
         <Link href="/" className="text-[#dc1623] font-extrabold text-xl">
-          TWISTFLIX
+          <h1>TWISTFLIX</h1>
         </Link>
         <Search />
         <div className="hidden md:flex space-x-20 py-5 h-16">
