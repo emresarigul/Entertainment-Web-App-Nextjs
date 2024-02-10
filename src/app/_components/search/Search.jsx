@@ -22,7 +22,7 @@ export default function Search() {
     router.push(
       `/search-result/${
         showType.showType === null ? "movie" : showType.showType
-      }/${showName}`
+      }/${showName.trim()}`
     );
     setShowName("");
     document.activeElement.blur();
