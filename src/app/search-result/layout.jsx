@@ -2,7 +2,7 @@ import React from "react";
 import SearchButton from "../_components/buttons/SearchButton";
 export default function SearchLayout({ children }) {
   return (
-    <section className="h-screen bg-[#16151a]">
+    <section className="bg-[#16151a] min-h-screen">
       <div className="flex justify-center gap-10">
         <SearchButton param="Movie" />
         <SearchButton param="Serie" />

@@ -13,7 +13,7 @@ export default async function page({ searchParams }) {
 
   return (
     <>
-      <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a]">
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a] min-h-screen">
         {data.results.map((serie, index) => {
           let titleLength = serie.title?.length || serie.original_name?.length;
           let serieName = serie.title || serie.original_name;

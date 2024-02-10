@@ -17,7 +17,7 @@ export default async function page({ params, searchParams }) {
 
   if (movieImageCheck.length === 0) {
     return (
-      <div className="text-white flex flex-col items-center pt-40 h-full">
+      <div className="text-white flex flex-col items-center pt-40">
         <div className="text-2xl sm:text-4xl font-semibold mb-3">
           No Results
         </div>
