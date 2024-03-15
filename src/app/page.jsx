@@ -20,7 +20,7 @@ export default async function Home({ searchParams }) {
   const data = await response.json();
 
   return (
-    <section className="-mt-[3.8rem] md:-mt-[5rem] bg-[#16151a]">
+    <section className="-mt-[3.5rem] sm:-mt-[3.8rem] md:-mt-[5rem] bg-[#16151a]">
       <Hero />
       <PopularRatedSlider results={data.results} />
       <Upcomings />
