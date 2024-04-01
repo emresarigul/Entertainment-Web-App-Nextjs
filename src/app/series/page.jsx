@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import PaginationButtons from "../_components/buttons/PaginationButtons";
+import PaginationButtons from "@/components/buttons/PaginationButtons";
 
 export default async function page({ searchParams }) {
   const seriePage = searchParams.page || 1;

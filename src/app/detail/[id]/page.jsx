@@ -1,4 +1,4 @@
-import Video from "@/app/_components/Video";
+import Video from "@/components/Video";
 import React from "react";
 import Image from "next/image";
 
