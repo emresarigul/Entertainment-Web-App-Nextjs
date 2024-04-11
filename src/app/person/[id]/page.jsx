@@ -20,7 +20,7 @@ export default async function page({ params, searchParams }) {
   const filteredSeries = response.tv_credits.cast.filter(
     (serie) => serie.poster_path !== null
   );
-
+  // sorts series by popularity
   const sortedSeries = filteredSeries.sort(
     (a, b) => b.popularity - a.popularity
   );
