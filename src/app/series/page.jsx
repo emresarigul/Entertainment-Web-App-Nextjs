@@ -15,10 +15,11 @@ export default async function page({ searchParams }) {
     <>
       <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a] min-h-screen">
         {data.results.map((serie, index) => {
-          let titleLength = serie.title?.length || serie.original_name?.length;
-          let serieName = serie.title || serie.original_name;
-          let releaseDate = serie.release_date || serie.first_air_date;
-          let voteAverage = serie.vote_average;
+          const titleLength =
+            serie.title?.length || serie.original_name?.length;
+          const serieName = serie.title || serie.original_name;
+          const releaseDate = serie.release_date || serie.first_air_date;
+          const voteAverage = serie.vote_average;
           return (
             <Link
               href={`/detail/${serie.id}?type=tv`}

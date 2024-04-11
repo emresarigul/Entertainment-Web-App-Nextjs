@@ -12,7 +12,8 @@ export default function Header() {
   const searchParams = useSearchParams();
   const headerCheck = searchParams.get("page");
   const pathname = usePathname();
-  const pathnameCheck = pathname.includes("search-result");
+  const pathnameCheck =
+    pathname.includes("search-result") || pathname.includes("person");
 
   const navActiveHandler = () => {
     setNavActive(!navActive);

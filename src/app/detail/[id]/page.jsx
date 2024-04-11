@@ -1,6 +1,7 @@
 import Video from "@/components/Video";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function page({ params, searchParams }) {
   // it fetches show datas based on show type(movie or tv) and show id
@@ -60,12 +61,13 @@ export default async function page({ params, searchParams }) {
             .filter((cast) => cast.profile_path)
             .map((cast, index) => {
               return (
-                <div
+                <Link
+                  href={`/person/${cast.id}`}
                   className=" basis-40 md:basis-48 grow-0 shrink-0"
                   key={index}
                 >
                   <Image
-                    className="border border-white rounded-3xl mb-3"
+                    className="border-2 border-white rounded-3xl mb-3"
                     width={500}
                     height={500}
                     priority={true}
@@ -78,7 +80,7 @@ export default async function page({ params, searchParams }) {
                   <div className="text-white text-sm md:text-base">
                     {cast.character}
                   </div>
-                </div>
+                </Link>
               );
             })}
         </div>
