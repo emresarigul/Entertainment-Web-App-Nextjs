@@ -51,7 +51,7 @@ export default async function page({ params, searchParams }) {
         <div className="basis-5/6 space-y-5 text-white">
           <h2 className="font-bold text-2xl lg:text-3xl">{response.name}</h2>
           <span className="text-sm">
-            {response.birthday.split("-").reverse().join("-")}
+            {response.birthday?.split("-").reverse().join("-")}
           </span>
           <div>
             <h3 className="font-semibold text-base lg:text-lg mb-2">
