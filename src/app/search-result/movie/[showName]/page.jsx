@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import PaginationButtons from "@/components/buttons/PaginationButtons";
 import SearchPaginationButtons from "@/components/buttons/SearchPaginationButtons";
 
 export default async function page({ params, searchParams }) {
@@ -74,10 +73,12 @@ export default async function page({ params, searchParams }) {
           );
         })}
       </div>
-      <SearchPaginationButtons
-        totalPage={totalPage}
-        showType={`search-result/movie/${params.showName}`}
-      />
+      <Suspense>
+        <SearchPaginationButtons
+          totalPage={totalPage}
+          showType={`search-result/movie/${params.showName}`}
+        />
+      </Suspense>
     </>
   );
 }

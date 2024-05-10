@@ -1,4 +1,5 @@
 "use client";
+import React, { Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,9 +13,11 @@ export default function PopularRatedSlider({ results }) {
     <div className="pt-16 pb-24 bg-[#16151a]">
       <div className="h-14 font-semibold px-2.5 md:px-5 max-w-7xl mx-auto mb-10 pb-8 border-b border-gray-500/[.30]">
         <div className="flex justify-between items-center">
-          <Button buttonText="Trends Now" param="trendsNow" />
-          <Button buttonText="Top Rated Movies" param="topRatedMovies" />
-          <Button buttonText="Top Rated Series" param="topRatedSeries" />
+          <Suspense>
+            <Button buttonText="Trends Now" param="trendsNow" />
+            <Button buttonText="Top Rated Movies" param="topRatedMovies" />
+            <Button buttonText="Top Rated Series" param="topRatedSeries" />
+          </Suspense>
         </div>
       </div>
       <Swiper
