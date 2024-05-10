@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PaginationButtons from "@/components/buttons/PaginationButtons";
+import SearchPaginationButtons from "@/components/buttons/SearchPaginationButtons";
 
 export default async function page({ params, searchParams }) {
   const showSearchPage = searchParams.page || 1;
@@ -10,6 +11,7 @@ export default async function page({ params, searchParams }) {
   );
 
   const movieData = await movieResponse.json();
+  const totalPage = movieData.total_pages;
 
   const movieImageCheck = movieData.results.filter(
     (movie) => movie.backdrop_path !== null
@@ -72,7 +74,10 @@ export default async function page({ params, searchParams }) {
           );
         })}
       </div>
-      <PaginationButtons showType={`search-result/movie/${params.showName}`} />
+      <SearchPaginationButtons
+        totalPage={totalPage}
+        showType={`search-result/movie/${params.showName}`}
+      />
     </>
   );
 }

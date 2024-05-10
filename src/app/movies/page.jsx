@@ -10,6 +10,7 @@ export default async function page({ searchParams }) {
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}&page=${moviePage}`
   );
   const data = await response.json();
+  const totalPage = data.total_pages;
 
   return (
     <>
@@ -51,7 +52,7 @@ export default async function page({ searchParams }) {
           );
         })}
       </section>
-      <PaginationButtons showType="movies" />
+      <PaginationButtons totalPage={totalPage} showType="movies" />
     </>
   );
 }
