@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import PaginationButtons from "@/components/buttons/PaginationButtons";
 
 export default async function page({ searchParams }) {
@@ -10,6 +10,7 @@ export default async function page({ searchParams }) {
     `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${seriePage}`
   );
   const data = await response.json();
+  const totalPage = data.total_pages;
 
   return (
     <>
@@ -51,7 +52,9 @@ export default async function page({ searchParams }) {
           );
         })}
       </section>
-      <PaginationButtons showType="series" />
+      <Suspense>
+        <PaginationButtons totalPage={totalPage} showType="series" />
+      </Suspense>
     </>
   );
 }
