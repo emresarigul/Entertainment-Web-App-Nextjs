@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
 import {
   Pagination,
   PaginationContent,
@@ -43,6 +41,12 @@ export default function SearchPaginationButtons({ showType, totalPage }) {
       { length: Math.min(totalPage, 5) },
       (_, index) => index
     );
+
+    const variableArrayMobile = Array.from(
+      { length: Math.min(totalPage, 1) },
+      (_, index) => index
+    );
+
     if (showPage > 6 && !isMobile) {
       variableArray.reverse();
     }
@@ -67,7 +71,7 @@ export default function SearchPaginationButtons({ showType, totalPage }) {
                   <PaginationLink>1</PaginationLink>
                 </Link>
               </PaginationItem>
-              {variableArray.slice(0, 5).map((item, index) => {
+              {variableArray.map((item, index) => {
                 return (
                   <PaginationItem key={index}>
                     <Link
@@ -102,7 +106,7 @@ export default function SearchPaginationButtons({ showType, totalPage }) {
                   <PaginationLink isActive={showPage === 1}>1</PaginationLink>
                 </Link>
               </PaginationItem> */}
-              {variableArray.slice(1, 1).map((item, index) => {
+              {variableArrayMobile.map((item, index) => {
                 console.log(item);
                 return (
                   <PaginationItem key={index}>
@@ -123,9 +127,9 @@ export default function SearchPaginationButtons({ showType, totalPage }) {
                 );
               })}
               <PaginationItem
-                className={`${showPage >= 3 ? "block" : "hidden"}`}
+                className={`${showPage >= 2 ? "block" : "hidden"}`}
               >
-                <Link href={`/${showType}?page=1`}>
+                <Link href={`/${showType}?page=${showPage}`}>
                   <PaginationLink isActive>{showPage}</PaginationLink>
                 </Link>
               </PaginationItem>

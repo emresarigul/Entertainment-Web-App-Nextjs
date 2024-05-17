@@ -46,7 +46,7 @@ export default function Search() {
           onChange={(e) => {
             setShowName(e.target.value);
           }}
-          className="w-full h-8 md:h-10 text-xs md:text-base bg-black/10 border border-white/50 rounded-lg outline-none focus:bg-white/10 text-white pl-2 pr-5 sm:pr-14 md:pr-20 lg:pr-52"
+          className="w-full h-8 md:h-10 text-base bg-black/10 border border-white/50 rounded-lg outline-none focus:bg-white/10 text-white pl-2 pr-5 sm:pr-14 md:pr-20 lg:pr-52"
           type="text"
           value={showName}
           placeholder="Search..."
