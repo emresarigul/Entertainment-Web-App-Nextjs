@@ -1,12 +1,12 @@
 import React from "react";
-import SearchButton from "@/components/buttons/SearchButton";
+import SearchResultButton from "@/components/buttons/SearchResultButton";
 
 export default function SearchLayout({ children }) {
   return (
     <section className="bg-[#16151a] min-h-screen">
       <div className="flex justify-center gap-10">
-        <SearchButton param="Movie" />
-        <SearchButton param="Serie" />
+        <SearchResultButton param="Movie" />
+        <SearchResultButton param="Serie" />
       </div>
       {children}
     </section>

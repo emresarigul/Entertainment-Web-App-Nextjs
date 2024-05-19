@@ -101,13 +101,7 @@ export default function SearchPaginationButtons({ showType, totalPage }) {
           )}
           {isMobile && (
             <>
-              {/* <PaginationItem className="">
-                <Link href={`/${showType}?page=1`}>
-                  <PaginationLink isActive={showPage === 1}>1</PaginationLink>
-                </Link>
-              </PaginationItem> */}
               {variableArrayMobile.map((item, index) => {
-                console.log(item);
                 return (
                   <PaginationItem key={index}>
                     <Link

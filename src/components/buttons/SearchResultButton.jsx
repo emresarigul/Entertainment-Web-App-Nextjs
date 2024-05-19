@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function SearchButton({ param }) {
+export default function SearchResultButton({ param }) {
   const params = useParams();
   const pathname = usePathname();
 
@@ -16,7 +16,7 @@ export default function SearchButton({ param }) {
       >
         <Button
           className={`text-white md:text-xl font-semibold bg-transparent md:hover:bg-[#dc1623] ${
-            pathname.includes(param.toLowerCase())
+            pathname.includes(`search-result/${param.toLowerCase()}`)
               ? "bg-[#dc1623]"
               : "bg-transparent"
           }`}

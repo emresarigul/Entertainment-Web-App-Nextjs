@@ -76,7 +76,7 @@ export default async function page({ params, searchParams }) {
       <Suspense>
         <SearchPaginationButtons
           totalPage={totalPage}
-          showType={`search-result/movie/${params.showName}`}
+          showType={`search-result/serie/${params.showName}`}
         />
       </Suspense>
     </>
