@@ -53,7 +53,7 @@ export default function MainSlider({ results }) {
                   </p>
                   <Link
                     href={`/detail/${result.id}?type=${result.media_type}`}
-                    className="inline-flex items-center gap-2 bg-[#dc1623] px-6 py-1.5 md:px-14 md:py-2.5 rounded-full font-medium shadow-2xl shadow-[#dc1623]/[.60]"
+                    className="inline-flex items-center gap-2 bg-[#dc1623] px-6 py-1.5 md:px-14 md:py-2.5 rounded-full font-medium shadow-2xl shadow-[#dc1623]/[.60] md:hover:bg-[#d00000] duration-200"
                   >
                     Detail
                     <GoEye className="text-xl" />
