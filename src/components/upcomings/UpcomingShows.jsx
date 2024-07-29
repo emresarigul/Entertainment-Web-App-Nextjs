@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
 import { GoEye } from "react-icons/go";
-import { IoIosClose } from "react-icons/io";
 import Link from "next/link";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -42,7 +40,7 @@ export default function UpcomingShows({
   return (
     <>
       <Dialog>
-        <DialogTrigger className="relative w-40 h-56 sm:w-80 sm:h-96 m-5 border border-white rounded-xl hover:opacity-80 duration-300 hover:shadow-2xl hover:shadow-white/[.50] cursor-pointer">
+        <DialogTrigger className="relative w-40 h-56 sm:w-80 sm:h-96 m-5 duration-300 border-2 border-white border-opacity-0 hover:border-opacity-100 hover:shadow-2xl hover:shadow-white/[.30] rounded-xl cursor-pointer">
           <Image
             className="object-cover rounded-xl"
             src={`https://image.tmdb.org/t/p/w780${backdrop_path}`}

@@ -1,5 +1,6 @@
 import React from "react";
 import UpcomingShows from "./UpcomingShows";
+
 export default async function Upcomings() {
   const upcomingMovieResponse = await fetch(
     `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`
