@@ -5,7 +5,8 @@ import Link from "next/link";
 export default async function page({ params, searchParams }) {
   const showType = searchParams.type || "movie";
   const personResponse = await fetch(
-    `https://api.themoviedb.org/3/person/${params.id}?api_key=${process.env.API_KEY}&&append_to_response=movie_credits,tv_credits`
+    `https://api.themoviedb.org/3/person/${params.id}?api_key=${process.env.API_KEY}&&append_to_response=movie_credits,tv_credits`,
+    { cache: "no-cache" }
   );
   const response = await personResponse.json();
   //removes the movies which does not have poster

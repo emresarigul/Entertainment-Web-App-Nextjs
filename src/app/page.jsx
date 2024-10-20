@@ -14,7 +14,8 @@ export default async function Home({ searchParams }) {
         : searchTerm === "topRatedSeries"
         ? "tv/top_rated"
         : null
-    }?api_key=${process.env.API_KEY}`
+    }?api_key=${process.env.API_KEY}`,
+    { cache: "no-cache" }
   );
 
   const data = await response.json();

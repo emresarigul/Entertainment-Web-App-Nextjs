@@ -6,7 +6,8 @@ import SearchPaginationButtons from "@/components/buttons/SearchPaginationButton
 export default async function page({ params, searchParams }) {
   const showSearchPage = searchParams.page || 1;
   const serieResponse = await fetch(
-    `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${params.showName}&page=${showSearchPage}`
+    `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${params.showName}&page=${showSearchPage}`,
+    { cache: "no-cache" }
   );
 
   const serieData = await serieResponse.json();

@@ -7,7 +7,8 @@ export default async function page({ searchParams }) {
   const seriePage = searchParams.page || 1;
   // it fetches the top rated series
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${seriePage}`
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${seriePage}`,
+    { cache: "no-cache" }
   );
   const data = await response.json();
   const totalPage = data.total_pages;

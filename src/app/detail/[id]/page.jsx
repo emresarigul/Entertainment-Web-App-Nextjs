@@ -6,12 +6,13 @@ import Link from "next/link";
 export default async function page({ params, searchParams }) {
   // it fetches show datas based on show type(movie or tv) and show id
   const response = await fetch(
-    `https://api.themoviedb.org/3/${searchParams.type}/${params.id}?api_key=${process.env.API_KEY}&append_to_response=videos,credits`
+    `https://api.themoviedb.org/3/${searchParams.type}/${params.id}?api_key=${process.env.API_KEY}&append_to_response=videos,credits`,
+    { cache: "no-cache" }
   );
 
   const data = await response.json();
   // it checks if show has video. if not displays show image instead of video
-  const checkVideo = data.videos.results.length;
+  const checkVideo = data?.videos?.results?.length;
 
   return (
     <section className="bg-black">
@@ -20,30 +21,30 @@ export default async function page({ params, searchParams }) {
           <Image
             className="object-cover"
             fill={true}
-            src={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
             alt="src"
           />
         </div>
       ) : (
-        <Video videoDatas={data.videos} checkVideo={checkVideo} />
+        <Video videoDatas={data?.videos} checkVideo={checkVideo} />
       )}
 
       <div className="relative py-5 border-t-4 border-[#dc1623]">
         <Image
           className="bg-no-repeat bg-cover bg-center object-cover h-[550px] w-full absolute top-0 brightness-[0.15]"
-          src={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w1280${data?.backdrop_path}`}
           alt="img"
           fill={true}
           quality={10}
         />
 
         <div className="relative z-50 text-2xl md:text-3xl text-white font-bold px-5 mb-3 flex items-center flex-wrap gap-3">
-          <h2>{data.title || data.original_name}</h2>
+          <h2>{data?.title || data?.original_name}</h2>
           <div className="relative z-50 flex items-center text-[#f8b200] text-sm font-normal">
-            {data.genres?.map((genre, index) => {
+            {data?.genres?.map((genre, index) => {
               return (
                 <div className="text-xs md:text-base mx-1" key={index}>
-                  {genre.name}
+                  {genre?.name}
                 </div>
               );
             })}
@@ -51,13 +52,13 @@ export default async function page({ params, searchParams }) {
         </div>
 
         <p className="relative z-50 text-sm md:text-base text-white px-5 max-w-7xl mb-6">
-          {data.overview}
+          {data?.overview}
         </p>
         <div className="relative z-50 text-white text-3xl font-semibold px-5">
           Cast
         </div>
         <div className="relative z-50 flex mt-5 overflow-auto gap-10 pb-5 px-5">
-          {data.credits?.cast
+          {data?.credits?.cast
             .filter((cast) => cast.profile_path)
             .map((cast, index) => {
               return (
@@ -71,14 +72,14 @@ export default async function page({ params, searchParams }) {
                     width={500}
                     height={500}
                     priority={true}
-                    src={`https://image.tmdb.org/t/p/h632${cast.profile_path}`}
-                    alt={cast.name}
+                    src={`https://image.tmdb.org/t/p/h632${cast?.profile_path}`}
+                    alt={cast?.name}
                   />
                   <div className="text-white text-base md:text-lg font-semibold">
-                    {cast.name}
+                    {cast?.name}
                   </div>
                   <div className="text-white text-sm md:text-base">
-                    {cast.character}
+                    {cast?.character}
                   </div>
                 </Link>
               );

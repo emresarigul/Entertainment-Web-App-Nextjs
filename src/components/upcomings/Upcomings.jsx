@@ -3,12 +3,14 @@ import UpcomingShows from "./UpcomingShows";
 
 export default async function Upcomings() {
   const upcomingMovieResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`,
+    { cache: "no-cache" }
   );
   const upcomingMovieData = await upcomingMovieResponse.json();
 
   const movieGenreResponse = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`,
+    { cache: "no-cache" }
   );
 
   const genreData = await movieGenreResponse.json();
