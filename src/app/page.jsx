@@ -22,7 +22,7 @@ export default async function Home({ searchParams }) {
   return (
     <section className="-mt-[3.5rem] sm:-mt-[3.8rem] md:-mt-[5rem] bg-[#16151a]">
       <Hero />
-      <PopularRatedSlider results={data.results} />
+      <PopularRatedSlider results={data?.results} />
       <Upcomings />
     </section>
   );

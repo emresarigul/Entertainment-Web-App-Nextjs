@@ -51,46 +51,46 @@ export default function PopularRatedSlider({ results }) {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        {results.map((result, index) => {
+        {results?.map((result, index) => {
           const titleLength =
-            result.title?.length || result.original_name?.length;
-          const movieName = result.title || result.original_name;
-          const releaseDate = result.release_date || result.first_air_date;
-          const voteAverage = result.vote_average;
+            result?.title?.length || result?.original_name?.length;
+          const movieName = result?.title || result?.original_name;
+          const releaseDate = result?.release_date || result?.first_air_date;
+          const voteAverage = result?.vote_average;
           return (
             <SwiperSlide
               key={index}
               className="relative !h-[19.2rem] md:!h-[25rem] lg:!h-[30rem]"
             >
               <Link
-                href={`/detail/${result.id}?type=${
-                  result.first_air_date ? "tv" : "movie"
+                href={`/detail/${result?.id}?type=${
+                  result?.first_air_date ? "tv" : "movie"
                 }`}
               >
                 <Image
                   className="object-cover rounded-xl pb-16 !h-[20rem] md:!h-[25rem] lg:!h-[30rem]"
                   width={1000}
                   height={500}
-                  src={`https://image.tmdb.org/t/p/w780${result.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/w780${result?.backdrop_path}`}
                   sizes="100%"
                   priority={true}
                   quality={50}
                   placeholder="blur"
-                  blurDataURL={`https://image.tmdb.org/t/p/w780${result.backdrop_path}`}
+                  blurDataURL={`https://image.tmdb.org/t/p/w780${result?.backdrop_path}`}
                   alt="movie-image"
                 />
                 <div className=" absolute z-50 bottom-0 w-full px-2 md:px-3">
                   <h2 className="text-white text-sm font-semibold md:font-bold md:text-lg">
                     {titleLength > 20
-                      ? movieName.substring(0, 19) + "..."
+                      ? movieName?.substring(0, 19) + "..."
                       : movieName}
                   </h2>
                   <div className="flex items-center justify-between">
                     <div className="text-[#4e4d52] text-sm font-semibold">
-                      {releaseDate.substring(0, 4)}
+                      {releaseDate?.substring(0, 4)}
                     </div>
                     <div className="text-[#f8b200] text-sm md:text-base">
-                      {voteAverage.toFixed(1)}
+                      {voteAverage?.toFixed(1)}
                     </div>
                   </div>
                 </div>

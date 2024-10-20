@@ -19,7 +19,7 @@ export default async function Upcomings() {
         Upcoming Movies
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 relative justify-items-center px-3 bg-[#16151a]">
-        {upcomingMovieData.results.map((movie, index) => {
+        {upcomingMovieData?.results?.map((movie, index) => {
           return <UpcomingShows key={index} {...movie} genreData={genreData} />;
         })}
       </div>

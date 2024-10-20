@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
 import { GoEye } from "react-icons/go";
@@ -31,9 +30,9 @@ export default function UpcomingShows({
   const matchedGenres = [];
 
   genre_ids.forEach((id) => {
-    const matchedGenre = genreData.genres.find((genre) => genre.id === id);
+    const matchedGenre = genreData?.genres?.find((genre) => genre?.id === id);
     if (matchedGenre) {
-      matchedGenres.push(matchedGenre.name);
+      matchedGenres.push(matchedGenre?.name);
     }
   });
 
@@ -52,19 +51,19 @@ export default function UpcomingShows({
           <span className="absolute z-40 bottom-0 w-full px-3 py-4 bg-gradient-to-t from-black to-[#16151a]/[.80] rounded-xl rounded-t-none block">
             <span className="text-white hidden sm:block font-bold text-sm sm:text-lg text-left">
               {titleLength > 20
-                ? movieName.substring(0, 28) + "..."
+                ? movieName?.substring(0, 28) + "..."
                 : movieName}
             </span>
             <span className="text-white sm:hidden font-bold text-sm sm:text-lg">
               {titleLength > 15
-                ? movieName.substring(0, 15) + "..."
+                ? movieName?.substring(0, 15) + "..."
                 : movieName}
             </span>
             <span className="flex items-center justify-between">
               <span className="text-[#4e4d52] text-sm font-semibold block">
-                {releaseDate.substring(0, 4)}
+                {releaseDate?.substring(0, 4)}
               </span>
-              <span className="text-[#f8b200]">{voteAverage.toFixed(1)}</span>
+              <span className="text-[#f8b200]">{voteAverage?.toFixed(1)}</span>
             </span>
           </span>
         </DialogTrigger>
@@ -76,11 +75,11 @@ export default function UpcomingShows({
                   <span className="text-white flex items-center gap-2">
                     <IoIosStar className="text-[#f8b200] text-2xl" />
                     <span className="text-2xl font-semibold">
-                      {voteAverage.toFixed(1)}
+                      {voteAverage?.toFixed(1)}
                     </span>
                   </span>
                   <span className="flex gap-3">
-                    {matchedGenres.slice(0, 4).map((genres, index) => {
+                    {matchedGenres?.slice(0, 4)?.map((genres, index) => {
                       return (
                         <span
                           className="text-[#f8b200] text-sm block"

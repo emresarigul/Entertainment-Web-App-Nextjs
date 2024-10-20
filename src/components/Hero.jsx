@@ -10,7 +10,7 @@ export default async function Hero() {
 
   return (
     <>
-      <MainSlider results={data.results} />
+      <MainSlider results={data?.results} />
     </>
   );
 }
