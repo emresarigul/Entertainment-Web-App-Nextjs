@@ -1,17 +1,12 @@
-import Video from "@/components/Video";
 import React from "react";
+import Video from "@/components/Video";
 import Image from "next/image";
 import Link from "next/link";
+import getMoviesSeriesDetail from "@/actions/getMoviesSeriesDetail";
 
 export default async function page({ params, searchParams }) {
-  // it fetches show datas based on show type(movie or tv) and show id
-  const response = await fetch(
-    `https://api.themoviedb.org/3/${searchParams.type}/${params.id}?api_key=${process.env.API_KEY}&append_to_response=videos,credits`,
-    { cache: "no-cache" }
-  );
+  const data = await getMoviesSeriesDetail(params, searchParams);
 
-  const data = await response.json();
-  // it checks if show has video. if not displays show image instead of video
   const checkVideo = data?.videos?.results?.length;
 
   return (
@@ -59,11 +54,11 @@ export default async function page({ params, searchParams }) {
         </div>
         <div className="relative z-50 flex mt-5 overflow-auto gap-10 pb-5 px-5">
           {data?.credits?.cast
-            .filter((cast) => cast.profile_path)
-            .map((cast, index) => {
+            ?.filter((cast) => cast.profile_path)
+            ?.map((cast, index) => {
               return (
                 <Link
-                  href={`/person/${cast.id}`}
+                  href={`/person/${cast?.id}`}
                   className=" basis-40 md:basis-48 grow-0 shrink-0"
                   key={index}
                 >

@@ -1,15 +1,7 @@
-export default async function getMoviesSeries(searchTerm) {
+export default async function getSeries(seriePage) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/${
-        searchTerm === "trendsNow"
-          ? "trending/all/week"
-          : searchTerm === "topRatedMovies"
-          ? "movie/top_rated"
-          : searchTerm === "topRatedSeries"
-          ? "tv/top_rated"
-          : null
-      }?api_key=${process.env.API_KEY}`,
+      `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${seriePage}`,
       {
         cache: "no-cache",
         headers: {

@@ -1,35 +1,33 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import getPerson from "@/actions/getPerson";
 
 export default async function page({ params, searchParams }) {
   const showType = searchParams.type || "movie";
-  const personResponse = await fetch(
-    `https://api.themoviedb.org/3/person/${params.id}?api_key=${process.env.API_KEY}&&append_to_response=movie_credits,tv_credits`,
-    { cache: "no-cache" }
-  );
-  const response = await personResponse.json();
+
+  const response = await getPerson(params);
   //removes the movies which does not have poster
-  const filteredMovies = response.movie_credits.cast.filter(
+  const filteredMovies = response?.movie_credits?.cast?.filter(
     (movie) => movie.poster_path !== null
   );
   // sorts movies by popularity
-  const sortedMovies = filteredMovies.sort(
+  const sortedMovies = filteredMovies?.sort(
     (a, b) => b.popularity - a.popularity
   );
   //removes the series which does not have poster
-  const filteredSeries = response.tv_credits.cast.filter(
+  const filteredSeries = response?.tv_credits?.cast?.filter(
     (serie) => serie.poster_path !== null
   );
   // sorts series by popularity
-  const sortedSeries = filteredSeries.sort(
+  const sortedSeries = filteredSeries?.sort(
     (a, b) => b.popularity - a.popularity
   );
 
   return (
     <section
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/w1280${sortedMovies[0].backdrop_path})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280${sortedMovies[0]?.backdrop_path})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -43,23 +41,23 @@ export default async function page({ params, searchParams }) {
         <div className="basis-2/6 mx-5 sm:mx-0">
           <Image
             className="border-2 rounded-lg"
-            src={`https://image.tmdb.org/t/p/w780${response.profile_path}`}
+            src={`https://image.tmdb.org/t/p/w780${response?.profile_path}`}
             width={350}
             height={500}
             alt=""
           />
         </div>
         <div className="basis-5/6 space-y-5 text-white">
-          <h2 className="font-bold text-2xl lg:text-3xl">{response.name}</h2>
+          <h2 className="font-bold text-2xl lg:text-3xl">{response?.name}</h2>
           <span className="text-sm">
-            {response.birthday?.split("-").reverse().join("-")}
+            {response?.birthday?.split("-").reverse().join("-")}
           </span>
           <div>
             <h3 className="font-semibold text-base lg:text-lg mb-2">
               Biography
             </h3>
             <p className="text-sm lg:text-base lg:pr-10">
-              {response.biography}
+              {response?.biography}
             </p>
           </div>
         </div>
@@ -88,19 +86,19 @@ export default async function page({ params, searchParams }) {
           </Link>
         </div>
         <div className="relative z-10 flex gap-10 overflow-x-scroll pt-10 pb-10 px-5">
-          {sortedMovies.map((movie) => {
-            const titleLength = movie.original_title?.length;
+          {sortedMovies?.map((movie) => {
+            const titleLength = movie?.original_title?.length;
             return (
               <Link
-                href={`/detail/${movie.id}?type=movie`}
+                href={`/detail/${movie?.id}?type=movie`}
                 className={`shrink-0 basis-40 md:basis-48 ${
                   showType === "tv" ? "hidden" : "block"
                 }`}
-                key={movie.id}
+                key={movie?.id}
               >
                 <Image
                   className="rounded-3xl mb-3 border-2"
-                  src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w780${movie?.poster_path}`}
                   width={300}
                   height={300}
                   alt=""
@@ -108,26 +106,26 @@ export default async function page({ params, searchParams }) {
                 <div>
                   <div className="text-white">
                     {titleLength > 20
-                      ? movie.original_title.substring(0, 19) + "..."
-                      : movie.original_title}
+                      ? movie?.original_title?.substring(0, 19) + "..."
+                      : movie?.original_title}
                   </div>
                   <div className="flex justify-between items-center mt-2">
                     <div className="text-[#4e4d52] text-sm font-semibold">
-                      {movie.release_date.substring(0, 4)}
+                      {movie?.release_date?.substring(0, 4)}
                     </div>
                     <div className="text-[#f8b200] text-sm md:text-base">
-                      {movie.vote_average.toFixed(1)}
+                      {movie?.vote_average?.toFixed(1)}
                     </div>
                   </div>
                 </div>
               </Link>
             );
           })}
-          {sortedSeries.map((serie, index) => {
-            const titleLength = serie.original_name?.length;
+          {sortedSeries?.map((serie, index) => {
+            const titleLength = serie?.original_name?.length;
             return (
               <Link
-                href={`/detail/${serie.id}?type=tv`}
+                href={`/detail/${serie?.id}?type=tv`}
                 className={`shrink-0 basis-40 md:basis-48 ${
                   showType === "movie" ? "hidden" : "block"
                 }`}
@@ -135,7 +133,7 @@ export default async function page({ params, searchParams }) {
               >
                 <Image
                   className="rounded-3xl mb-3 border-2"
-                  src={`https://image.tmdb.org/t/p/w780${serie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w780${serie?.poster_path}`}
                   width={300}
                   height={300}
                   alt=""
@@ -143,15 +141,15 @@ export default async function page({ params, searchParams }) {
                 <div>
                   <div className="text-white">
                     {titleLength > 20
-                      ? serie.original_name.substring(0, 19) + "..."
-                      : serie.original_name}
+                      ? serie?.original_name?.substring(0, 19) + "..."
+                      : serie?.original_name}
                   </div>
                   <div className="flex justify-between items-center mt-2">
                     <div className="text-[#4e4d52] text-sm font-semibold">
-                      {serie.first_air_date.substring(0, 4)}
+                      {serie?.first_air_date?.substring(0, 4)}
                     </div>
                     <div className="text-[#f8b200] text-sm md:text-base">
-                      {serie.vote_average.toFixed(1)}
+                      {serie?.vote_average?.toFixed(1)}
                     </div>
                   </div>
                 </div>

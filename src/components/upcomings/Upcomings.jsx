@@ -1,19 +1,12 @@
 import React from "react";
 import UpcomingShows from "./UpcomingShows";
+import getUpcomings from "@/actions/getUpcomings";
+import getMovieGenre from "@/actions/getMovieGenre";
 
 export default async function Upcomings() {
-  const upcomingMovieResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`,
-    { cache: "no-cache" }
-  );
-  const upcomingMovieData = await upcomingMovieResponse.json();
+  const upcomingMovieData = await getUpcomings();
 
-  const movieGenreResponse = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`,
-    { cache: "no-cache" }
-  );
-
-  const genreData = await movieGenreResponse.json();
+  const genreData = await getMovieGenre();
 
   return (
     <div className="pb-16">
