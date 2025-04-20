@@ -27,14 +27,9 @@ export default function UpcomingShows({
   const movieName = title || original_name;
   const releaseDate = release_date || first_air_date;
   const voteAverage = vote_average;
-  const matchedGenres = [];
-
-  genre_ids.forEach((id) => {
-    const matchedGenre = genreData?.genres?.find((genre) => genre?.id === id);
-    if (matchedGenre) {
-      matchedGenres.push(matchedGenre?.name);
-    }
-  });
+  const matchedGenres = genre_ids?.map(
+    (id) => genreData?.genres?.find((genre) => genre?.id === id)?.name
+  );
 
   return (
     <>
