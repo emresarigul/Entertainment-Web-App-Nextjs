@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Engellemek istediğin botların listesi
 const BANNED_BOTS = [
   "meta-externalagent",
   "facebookexternalhit",
@@ -10,13 +9,13 @@ const BANNED_BOTS = [
   "whatsapp",
   "python-requests",
   "node-fetch",
-  "bytespider", // TikTok
+  "bytespider",
   "ahrefsbot",
   "semrushbot",
-  "dotbot", // Moz
+  "dotbot",
   "mj12bot",
   "blexbot",
-  "petalbot", // Huawei
+  "petalbot",
   "yandexbot",
   "baiduspider",
   "applebot",
@@ -27,13 +26,11 @@ const BANNED_BOTS = [
 export function middleware(request: NextRequest) {
   const userAgent = request.headers.get("user-agent")?.toLowerCase() || "";
 
-  // Eğer User-Agent yasaklı listeden birini içeriyorsa isteği engelle
   const isBot = BANNED_BOTS.some((bot) =>
     userAgent.includes(bot.toLowerCase())
   );
 
   if (isBot) {
-    // 403 Forbidden - Bot hiçbir şey göremesin
     return new NextResponse("Access Denied", {
       status: 403,
       headers: {
@@ -45,7 +42,6 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// BÜTÜN sayfalara uygula (sadece Next.js sistem dosyaları hariç)
 export const config = {
   matcher: [
     /*
