@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
   const userAgent = request.headers.get("user-agent")?.toLowerCase() || "";
 
   const isBot = BANNED_BOTS.some((bot) =>
-    userAgent.includes(bot.toLowerCase())
+    userAgent.includes(bot.toLowerCase()),
   );
 
   if (isBot) {
@@ -43,13 +43,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Tüm rotalar, sadece bunlar HARİÇ:
-     * - _next/static (CSS, JS dosyaları)
-     * - _next/image (resim optimizasyonu)
-     * - favicon.ico
-     */
-    "/((?!_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
